@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이펙트</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <style>
+        /*
+        .pTag-div{
+            display: none;
+        }
+        */
+    </style>
+</head>
+<body>
+    <button id="title-btn">효과</button>
+    <h1 id="title">안녕하세요</h1>
+
+    <button id="toggle-btn">토글 버튼</button>
+    <div class="pTag-div">
+        <p id="pTag">이 요소는 div안의 p요소 입니다</p>
+        <p id="pTag">toggle을 통해 효과를 주었습니다</p>
+    </div>
+
+    <button id="fade-btn">버튼에 마우스를 올리면 상자가 나타나고 사라집니다</button>
+    <p></p>
+    <div id="fade-div" style="width: 100px; height: 100px; border: 5px solid orange; background-color: yellow;"></div>
+    
+    <h1>고정된 div 나타내기</h1>
+    <button id="slide-btn">슬라이드로 나타나기</button>
+    <p></p>
+    <div id="slide-div"
+    style="position: fixed; top: 10px; right: 10px; width: 100px; height: 100px; 
+    border: 5px solid orange; background-color: yellow;"></div>
+
+
+    <script>
+        $("#title-btn").on("click", function(){
+            $("#title").toggle("fast");
+        });
+
+        // 실습1 : 요소의 표시와 숨김 실습
+        $("#toggle-btn+").hide();
+        $("#toggle-btn").on("click", function(){
+            $(this).next().toggle(1000);
+        });
+
+        // 실습2 : 페이드 효과 실습
+        $("#fade-btn").on("mouseenter mouseleave",function(){
+            $("#fade-div").fadeToggle(1000);
+        })
+
+        // 실습3 : 슬라이드 효과 실습
+        $("#slide-btn").on("click",function(){
+            $("#slide-div").slideToggle(1000);
+        })
+
+    </script>
+</body>
+</html>
