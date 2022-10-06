@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습장</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- 이벤트 -->
+    <!-- 실습1 : 입력양식 이벤트 메소드 실습 -->
+    <input type="text" id="change-input1"><br>
+    <input type="text" id="change-input2"><br>
+
+    <!-- 이펙트 -->
+    <!-- 실습1 : 요소의 표시와 숨김 -->
+    <button id="toggle-btn">토글버튼</button>
+    <div id="p-div">
+        <p>이 요소는 div안의 p요소 입니다</p>
+        <p>toggle을 통해 효과를 주었습니다</p>
+    </div>
+
+    <!-- 실습2 : 페이드 효과 실습 -->
+    <button id="fade-btn">토글 버튼</button>
+    <div id="fade-div" style="border: 3px solid orange; width: 100px; 
+    height: 100px; background-color: yellow;"></div>
+
+    <!-- 실습3 : 슬라이드 효과 실습 -->
+    <button id="slide-btn">토글 버튼</button>
+    <div id="slide-div" style="border: 3px solid orange; width: 100px; 
+    height: 100px; background-color: yellow; 
+    position: fixed; top: 10px; right: 10px;"></div>
+
+    <script>
+        // 이벤트
+        // 실습1 : 입력양식 이벤트 메소드 실습
+        // 각각의 메소드를 사용하는 방법
+        $("#change-input1").focus(function(){
+            $("#change-input1").attr("style","background-color:yellow;");
+        })
+        $("#change-input1").blur(function(){
+            $("#change-input1").attr("style","background-color:white;");
+        })
+        
+        // on 메소드를 사용하는 방법
+        $("#change-input2").on({
+            focus : function(){
+                $("#change-input2").attr("style","background-color:yellow;");
+            },
+            blur : function(){
+                $("#change-input2").attr("style","background-color:white;");
+            }
+        })
+
+        // 이펙트
+        // 실습1 : 요소의 표시와 숨김
+        $("#toggle-btn").on("click",function(){
+            $("#p-div").toggle(1000);
+        })
+
+        // 실습2 : 페이드  효과 실습
+        $("#fade-btn").on("mouseenter mouseleave",function(){
+            $("#fade-div").fadeToggle(1000);
+        })
+
+        // 실습3 : 슬라이드 효과 실습
+        $("#slide-btn").on("click",function(){
+            $("#slide-div").slideToggle(1000);
+        })
+
+
+    </script>
+</body>
+</html>
